@@ -6,8 +6,12 @@ import InputGroup from "../components/shared/forms/InputGroup";
 const App = () => {
     return (
         <div>
-            <h2>App component</h2>
-            <InputGroup />
+            <InputGroup
+                name="title"
+                placeholder={"enter your title"}
+                label={"Title"}
+                error={"something went wrong"}
+            />
         </div>
     );
 };

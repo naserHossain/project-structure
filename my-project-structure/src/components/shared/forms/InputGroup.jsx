@@ -1,24 +1,29 @@
 import React from "react";
 import styled from "styled-components";
-import Text from "../../UI/texts/Texts";
 import TextInput from "../../UI/inputs/TextInputs";
+import Label from "../../UI/inputs/Label";
 
 const Container = styled.div`
     padding: 1rem;
-    width: 100%;
+    width: 80%;
     border: 1px solid #e1e1e1;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
 `;
 
-const InputGroup = () => {
+const ErrorMessage = styled.div`
+    font-size: 0.8rem;
+    color: red;
+`;
+
+const InputGroup = ({ label, name, value, placeholder, error }) => {
     return (
-        <div>
-            <h2>input group</h2>
-            <Text> it will be a label </Text>
-            <TextInput placeholder="what is your name" />
-        </div>
+        <Container>
+            <Label htmlFor={name}>{label}</Label>
+            <TextInput name={name} id={name} placeholder={placeholder ?? ""} />
+            {error && <ErrorMessage> {error} </ErrorMessage>};
+        </Container>
     );
 };
 
